@@ -1,25 +1,36 @@
-main {
-    width: 80%;
-    margin: auto;
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: grey;
+    margin-left: 100px;
+    padding: 30px;
+    
 }
 
 .color {
     border: solid 1px black;
     display: inline-block;
+    width: 80px;
+    height: 80px;
 }
 
-#color1 {
+#black {
     background-color: black;
 }
 
-#color2 {
+#blue {
     background-color: blue;
 }
 
-#color3 {
+#green {
     background-color: green;
 }
 
-#color4 {
+#orange {
     background-color: orange;
+}
+
+.pixel {
+    display: inline-block;
+    border: solid black 1px;
+    background: white;
 }
