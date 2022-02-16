@@ -15,6 +15,7 @@ function createPixelBoard(n) {
             line.appendChild(createDivs('pixel'));
         }
     }
+    pixelApplication();
 }
 createPixelBoard(5);
 
@@ -24,9 +25,24 @@ for (let colSel of colorOption) {
     colSel.addEventListener('click', classSeleted);
 }
 
-function classSeleted (event) {
+function classSeleted(event) {
     for (let colSel of colorOption) {
         colSel.className = 'color';
     }
     event.target.className = 'color selected'
 }
+
+//8 Clicar em um pixel dentro do quadro após selecionar uma cor na paleta faz com que o pixel seja preenchido com a cor selecionada.
+function pixelApplication() {
+    let pixel = document.querySelectorAll('.pixel');
+    for (let pixSel of pixel) {
+        pixSel.addEventListener('click', changeColor);
+    }
+}
+//Research get computed style(Tutorial): https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
+function changeColor(event) {
+    let selectedColor = document.querySelector('.selected');
+    let pixelColor = window.getComputedStyle(selectedColor).getPropertyValue('background-color');
+    event.target.style.background = pixelColor;
+}
+
