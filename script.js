@@ -46,3 +46,11 @@ function changeColor(event) {
     event.target.style.background = pixelColor;
 }
 
+//9 Crie um botão que, ao ser clicado, limpa o quadro preenchendo a cor de todos seus pixels com branco.
+document.querySelector('#clear-board').addEventListener('click', clearBoard);
+function clearBoard() {
+    let pixel = document.querySelectorAll('.pixel');
+    for (pixSel of pixel) {
+        pixSel.style.background = 'white';
+    }
+}
