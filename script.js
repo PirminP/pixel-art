@@ -54,3 +54,52 @@ function clearBoard() {
         pixSel.style.background = 'white';
     }
 }
+
+//10 Faça o quadro de pixels ter seu tamanho definido pela pessoa usuária.
+//11 Limite o tamanho mínimo e máximo do board.
+let board = document.querySelector('#generate-board');
+board.addEventListener('click', generateBoard);
+
+function generateBoard() {
+    let size = document.querySelector('#board-size').value;
+    if (size == '') {
+        alert('Board inválido!')
+    } else if (size < 5) { //11
+        clearCurrentBoard();
+        createPixelBoard(5);
+    } else if (size > 50) { //11
+        clearCurrentBoard();
+        createPixelBoard(50);
+    } else {
+        clearCurrentBoard();
+        createPixelBoard(size);
+    }
+}
+
+function clearCurrentBoard () {
+    let pixel = document.querySelectorAll('.pixel');
+    for (let pix of pixel) {
+        pix.remove();
+    }
+    let lines = document.querySelectorAll('.line');
+    for (let lin of lines) {
+        lin.remove();
+    }
+}
+
+//12 Faça com que as cores da paleta sejam geradas aleatoriamente ao carregar a página.
+// Research random color: https://stackoverflow.com/questions/1484506/random-color-generator
+document.querySelector('#black').style.background = black;
+document.querySelector('#blue').style.background = getRandomColor();
+document.querySelector('#green').style.background = getRandomColor();
+document.querySelector('#orange').style.background = getRandomColor();
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
