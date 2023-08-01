@@ -4,3 +4,4 @@
 * Designed by using HTML5, CSS3 & JavaScript
 
 ## Demonstration
+![To access](https://github.com/PirminP/pixel-art/blob/main/pixel-art.gif)
